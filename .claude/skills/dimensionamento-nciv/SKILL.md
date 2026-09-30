@@ -29,7 +29,7 @@ Esta skill dimensiona automaticamente propostas de Concepção (ARQ, DI, Estrutu
 - Qualidade da planta arquitetônica terceirizada parecer comprometida (paredes desalinhadas, medidas inconsistentes) → não avaliável pela skill, sempre manual
 - Necessidade de contenção/muro de arrimo → fora de escopo do NCiv, sinalizar terceirização com o Clau
 - Divergências entre o que o analista declarou e o que foi encontrado na pasta de insumos
-- **GO ultrapassando 8 semanas no total** (soma de Quantificação + Orçamento + Planejamento) → teto prático confirmado pelo Heitor Taniguchi é 6-8 semanas; se a soma das faixas por etapa ultrapassar 8, é sinal de erro de aplicação da regra, não um resultado válido — ver `regras-dimensionamento-escopo.md`
+- **GO ultrapassando 8 semanas no total** (soma de Quantificação + Orçamento + Planejamento) → teto prático confirmado pelo Heitor Taniguchi é 6-8 semanas; se a soma das faixas por etapa ultrapassar 8, é sinal de erro de aplicação da regra, não um resultado válido — ver `regras-dimensionamento-escopo.md`. **Nunca apresentar um total de GO acima de 8 semanas**, nem na tabela-resumo nem no detalhe: a linha do GO mostra `🚩 em revisão — soma das etapas passou do teto de 8 semanas`, e os valores por etapa que causaram o estouro vão só em Observações, marcados como "não válidos"
 - Qualquer dos guardrails listados em `regra-fronteira-faixas.md` (máximo de 2 movimentações de faixa por disciplina, teto de semanas do Estrutural, etc.)
 
 ## Formato da resposta

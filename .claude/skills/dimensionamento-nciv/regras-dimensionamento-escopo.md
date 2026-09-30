@@ -309,7 +309,7 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 | Orçamento | 3 semanas | 4 semanas |
 | Planejamento | 2 semanas | 4 semanas |
 
-**Teto do GO no total:** a soma Quantificação + Orçamento + Planejamento tem teto prático de **6-8 semanas** (confirmado por Heitor Taniguchi). Se a soma passar de 8, é sinal de erro na aplicação da regra, não um resultado válido — parar e marcar para revisão humana, com comentário de duas linhas.
+**Teto do GO no total:** a soma Quantificação + Orçamento + Planejamento tem teto prático de **6-8 semanas** (confirmado por Heitor Taniguchi). Se a soma passar de 8, é sinal de erro na aplicação da regra, não um resultado válido — parar e marcar para revisão humana, com comentário de duas linhas. **Nunca apresentar total de GO acima de 8 semanas como resultado** (nem na tabela-resumo, nem no detalhe da disciplina): mostrar `🚩 em revisão` e colocar os valores por etapa só em Observações, marcados como "não válidos".
 
 ### Pontos de atenção por etapa (todos da planilha oficial)
 

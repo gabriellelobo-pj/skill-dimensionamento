@@ -30,6 +30,10 @@ Este é o critério mais importante do arquivo e o menos intuitivo. Veio do arqu
 
 Consequência prática: um projeto com terreno complicado e metragem pequena pode ter pré-projeto longo e etapas seguintes curtas. Dimensionar o pré-projeto por metragem subestima; dimensionar as etapas seguintes por terreno superestima.
 
+## Regra transversal: a metragem é a do card, e ela já inclui a garagem
+
+Usar a **área construída escrita no card, como está**. Ela já inclui a garagem — para o NCiv, garagem é área construída, porque é modelada. **Nunca somar a garagem por cima** da metragem do card (ex: card diz 100 m² com garagem no térreo → dimensionar com 100 m², não 200 m²). A confusão vem da legislação, onde às vezes a garagem não é área computável — isso não vale para o dimensionamento. (Confirmado pela Lot em 30/09/2026; bate com o gabarito do Elétrico no mesmo caso.)
+
 ---
 
 ## Arquitetônico (ARQ)
@@ -46,12 +50,12 @@ Consequência prática: um projeto com terreno complicado e metragem pequena pod
 | Etapa | Critério | Semanas |
 |---|---|---|
 | Planejamento de zoneamento (pré-projeto) | Cidade bem documentada / com precedente | 0,5 |
-| | Cidade média sem precedente | 1 |
+| | Cidade com legislação difícil de achar ou espalhada | 1 |
 | | Cidade pequena mal documentada | 1 |
 | | Zoneamento especial | 1,5+ ou **inviável** |
-| Análise topográfica (pré-projeto) | Terreno plano | 0 |
-| | Desnível 1:20 ou terreno >300m² | 0,5 |
-| | Desnível até 1:2 ou terreno >700m² | 1 |
+| Análise topográfica (pré-projeto) | Terreno plano ou pouco inclinado | 0 |
+| | Desnível 1:20 | 0,5 |
+| | Desnível até 1:2 | 1 |
 | | Desnível >1:1, ou terreno especial (rochoso, leito de rio, mar) | **inviável** |
 | Estudo de Viabilidade / Programa de Necessidades | Projeto comum NCiv | 0,5 |
 | | Cliente com ideias prontas convencionais | 0,5 |
@@ -59,13 +63,25 @@ Consequência prática: um projeto com terreno complicado e metragem pequena pod
 | Estudo Preliminar | Metragem <120m² ou com planta definida | 1 |
 | | Metragem >120m² ou sem planta definida | 1,5 |
 | | Metragem >200m² ou sobrado | 2 |
-| | >300m² ou sobrado com piscina/subsolo/adicionais | 2,5 |
+| | >300m² ou sobrado com subsolo/adicionais (piscina **não** conta — ver abaixo) | 2,5 |
 | Anteprojeto (modelagem no Revit — já com 0,5 de gordura embutida) | Mesmas 4 faixas acima | 2 / 2,5 / 3 / 3,5 |
 | Renderização | Mesmas 4 faixas acima | 0,5 / 0,5 / 1 / 1 |
 | Projeto Legal | Documentação exigida breve | 1 |
 | | Documentação normal / casa mediana | 1 |
 | | Documentação extensa / casa complexa | 2 |
-| | Documentação extra/especial (ex: terreno em aclive) | 2,5 |
+| | Documentação extra/especial (ex: terreno em aclive que exige projeto de movimentação de terra) | 2,5 |
+
+### Decisões da Lot sobre o gabarito (30/09/2026)
+
+Vieram da comparação da skill com a validação da Lot nos testes do template v3 — a skill superestimava o ARQ em todos os casos, principalmente no pré-projeto.
+
+- **Pré-projeto de um projeto comum ≈ 1 semana no total** (zoneamento 0,5 + topografia 0 + viabilidade 0,5). Se a soma do pré-projeto passar disso, conferir se algum critério foi aplicado sem motivo claro.
+- **Zoneamento — o que é "bem documentada":** não é o tamanho da cidade, é a **facilidade de achar a legislação**. Legislação de zoneamento recente e fácil de acessar (ex: site/geoportal onde se digita o endereço e sai tudo) → **0,5**, mesmo em cidade de interior (ex: Ibiúna é bem documentada). Lei difícil de encontrar, desatualizada ou espalhada em vários documentos → **1**. "Cidade pequena mal documentada" é o caso extremo, "no fim do mundo". Quando possível, **verificar** se a legislação da cidade é fácil de achar; se não der para verificar, usar 0,5 e registrar em *Suposições*.
+- **Análise topográfica — só o desnível importa, a área do terreno não.** Os critérios antigos "terreno >300m²" e ">700m²" foram retirados. Terreno pouco inclinado → 0.
+- **Viabilidade:** 0,5 é o padrão; +0,5 (total 1) só quando o cliente tem um pedido muito específico ou difícil, que exige ir mais a fundo (ex: um espaço de serralheria).
+- **Projeto legal "terreno em aclive" (2,5)** só vale para aclive relevante — da ordem de ~6 m de desnível — que exija **projeto de movimentação de terra** (+1 semana, e hoje só a Lot sabe fazer). Terreno levemente inclinado é projeto legal normal (**1**). Com **só foto** não dá para saber o desnível: usar projeto legal normal (1) e registrar em *Suposições* que pode subir se o levantamento mostrar desnível relevante.
+- **Piscina não muda a faixa do ARQ.** Não soma nada nem empurra para a faixa mais alta ("ninguém vai ficar três dias modelando a piscina") — o que dimensiona é a metragem. A Lot tirou a piscina da planilha.
+- **Não existe teto prático para o ARQ** — a regra é tentar aceitar tudo. (Diferente do Estrutural e do GO.)
 
 **Confirmado:** a topografia (ter ou não o levantamento, ou só imagem/localização exata) **não influencia** o dimensionamento do Anteprojeto/Revit. Seguir apenas a faixa única da planilha oficial (2-3,5 semanas), independente de haver planta prévia detalhada ou não. Ponto fechado — não há faixa separada para "com planta prévia".
 
@@ -281,7 +297,7 @@ Esta variável **não está na planilha oficial** ainda como campo formal do Hid
 Casos que a regra não cobria e foram decididos durante os testes do template v3:
 
 - **Item "futuro" ou "só preparação"** (ex: preparação para painel solar, para piscina futura): dimensionar **como item completo do projeto**, com o acréscimo cheio do complementar. Não existe de fato uma "preparação" — o cliente executa usando o nosso projeto quando quiser.
-- **Garagem entra na metragem** do Elétrico e do Hidráulico. Para o Elétrico faz sentido; para o Hidráulico é uma aproximação reconhecidamente ruim, mas ainda não há forma melhor de dimensionar.
+- **Garagem:** usar a área construída do card como está — ela já inclui a garagem; **nunca somar a garagem por cima** (ver regra transversal no início do arquivo). *Corrigido em 30/09/2026: a versão anterior mandava somar a garagem, o que gerou erro de +2 semanas no Elétrico no gabarito.*
 - **Fossa séptica não soma prazo** no Hidráulico. Mesmo assim, **registrar na validação** se o projeto usa fossa — é informação útil para o projeto e evita perguntar de novo depois.
 - **Piscina e climatização são só Hidráulico** — não somam no Elétrico, mesmo que o card cite esses itens no escopo do Elétrico (ver tabela de complementares do Elétrico).
 
@@ -361,6 +377,7 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 |---|---|---|---|
 | 03/09/2026 | Julia Lee ("Julee") | Estrutural | 5 variáveis principais, estruturas especiais, 4 dificuldades de planta (anotado por Gabrielle Lobo durante a conversa — atribuição corrigida) |
 | 03/09/2026 | Isabela Lot | Arquitetônico | Distinção terreno / metragem por etapa, 3 variáveis secundárias |
+| 30/09/2026 | Isabela Lot (áudios sobre o gabarito) | Arquitetônico | Pré-projeto ≈ 1 semana; "bem documentada" = facilidade de achar a legislação; topografia só por desnível; projeto legal 2,5 só com movimentação de terra; piscina não muda faixa; sem teto; metragem do card já inclui garagem |
 | — | Paulinho | Elétrico / Hidráulico | Tipo de aquecimento de água, declive do terreno, faixas numéricas, complementares |
 | — | Julia Lee ("Julee") | Estrutural (bench formal) | Concreto armado, steel frame, encanamento no subsolo, cômodos >6x6m, qualidade de planta terceirizada |
 | — | Heitor Tani | GO | Pontos de atenção por etapa, pendências "a confirmar" |

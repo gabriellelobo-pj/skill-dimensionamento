@@ -36,7 +36,9 @@ Esta skill dimensiona automaticamente propostas de Concepção (ARQ, DI, Estrutu
 
 Toda validação sai **sempre neste formato**, nesta ordem. Quem lê pode ser um PO ou SDR novo: escrever em frases simples, sem sigla ou jargão solto (explicar na primeira vez que aparecer, ex: "muro de arrimo (muro que segura a terra)").
 
-**Status:** uma linha no topo, antes de tudo:
+**Título:** a primeira linha da resposta é sempre `# Projeto [nome do cliente]`, usando o campo `Cliente:` do card (ex: `# Projeto Ademir`). Serve para identificar a conversa — o título do chat costuma ser gerado a partir da primeira mensagem; se não sair certo, quem validou renomeia o chat para `Projeto [nome do cliente]`.
+
+**Status:** uma linha logo abaixo do título:
 - ✅ Pronto para proposta
 - ⚠️ Precisa de revisão do PO
 - 🚩 Parado (restrição de escopo ou possível inviabilidade)

@@ -3,70 +3,78 @@ name: dimensionamento-nciv
 description: Dimensiona automaticamente propostas de Concepção do NCiv (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) a partir dos insumos de um card de lead. Use quando o usuário pedir para dimensionar, validar ou estimar prazo de um projeto/proposta do NCiv, ou mencionar um card com dados de terreno, metragem, disciplinas contratadas e itens especiais (fotovoltaico, piscina, subsolo).
 ---
 
-# Skill de Dimensionamento Automático — NCiv
+# Dimensionamento automático — NCiv
 
-Esta skill dimensiona automaticamente propostas de Concepção (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) a partir dos insumos recebidos no card do lead. O resultado é sempre revisado por um PO humano antes de virar proposta — a skill reduz o tempo de validação, não substitui a revisão.
+Dimensiona propostas de Concepção a partir do card do lead. Um PO humano sempre revisa o resultado antes de virar proposta. A skill reduz o tempo de validação, não substitui a revisão.
 
----
+## Quais arquivos ler
 
-## Antes de dimensionar qualquer coisa
+1. Identifique as disciplinas contratadas no card (nem todo lead pede todas).
+2. Leia sempre `regras/gerais.md`.
+3. Leia só o arquivo de cada disciplina contratada:
 
-1. Identifique **quais disciplinas foram contratadas** no card (nem todo lead pede todas).
-2. Para cada disciplina contratada, consulte `regras-dimensionamento-escopo.md` (nesta mesma pasta) — ele traz a variável principal, as faixas numéricas oficiais e os critérios não-óbvios de cada disciplina.
-3. Se o card trouxer link do Drive ou nome de cliente com pasta de insumos de terreno, consulte `insumos-drive.md` (nesta mesma pasta) **antes** de preencher qualquer campo de terreno — ele define como localizar a pasta, o que extrair de cada tipo de arquivo, e o vocabulário permitido para inclinação (nunca invente um número de inclinação a partir de foto).
-4. Se o projeto cair perto do limite entre duas faixas de uma disciplina, consulte `regra-fronteira-faixas.md` (nesta mesma pasta) — a direção padrão (subir ou descer a faixa) **varia por disciplina**, não é universal.
+| Disciplina | Arquivo |
+|---|---|
+| Arquitetônico (ARQ) | `regras/arq.md` |
+| Design de Interiores (DI) | `regras/di.md` |
+| Estrutural (EST) | `regras/est.md` |
+| Elétrico (ELE) e Hidráulico (HID) | `regras/instala.md` |
+| GO | `regras/go.md` |
 
-## Regra geral, vale para todas as disciplinas
+4. Card com link do Drive ou nome de cliente com pasta de insumos: leia `insumos-drive.md` **antes** de preencher qualquer campo de terreno. Nunca invente um número de inclinação a partir de foto.
+5. Projeto perto do limite entre duas faixas: leia `regra-fronteira-faixas.md`. A direção padrão (subir ou descer) **varia por disciplina**.
 
-- **Nunca invente número.** Se uma variável não tiver informação suficiente no card, marque como não avaliado e sinalize para o PO — não assuma o caso mais comum.
-- **Sempre marque a origem de um dado estimado** (ex: "declive visível, origem: foto" vs. "desnível de 1,8m, origem: levantamento em PDF").
-- **Restrições de escopo levam a "inviável", não a um ajuste de prazo.** Ex: elevador no Estrutural, poço no Hidráulico, média tensão no Elétrico — pare e sinalize, não tente dimensionar em semanas.
-- **Um comentário de duas linhas** deve acompanhar qualquer ajuste de fronteira (o que mudou + por quê), conforme o padrão definido em `regra-fronteira-faixas.md`.
+## Regras gerais
 
-## Quando parar e sinalizar para revisão humana (não decidir sozinha)
+- **Nunca invente número.** Variável sem informação suficiente no card fica como não avaliada e vai para o PO. Não assuma o caso mais comum.
+- **Marque a origem de todo dado estimado.** Ex: "declive visível, origem: foto" ou "desnível de 1,8 m, origem: levantamento em PDF".
+- **Restrição de escopo leva a "inviável", não a ajuste de prazo.** Ex: elevador no EST, poço no HID, média tensão no ELE. Pare e sinalize, não converta em semanas.
+- **Todo ajuste de fronteira leva um comentário de duas linhas** (o que mudou e por quê), no padrão de `regra-fronteira-faixas.md`.
 
-- Terreno especial (rochoso, leito de rio, mar) ou zoneamento especial → planilha trata como inviável, a skill não decide isso
-- Qualidade da planta arquitetônica terceirizada parecer comprometida (paredes desalinhadas, medidas inconsistentes) → não avaliável pela skill, sempre manual
-- Necessidade de contenção/muro de arrimo → fora de escopo do NCiv, sinalizar terceirização com o Clau
-- Divergências entre o que o analista declarou e o que foi encontrado na pasta de insumos
-- **GO ultrapassando 8 semanas no total** (soma de Quantificação + Orçamento + Planejamento) → teto prático confirmado pelo Heitor Taniguchi é 6-8 semanas; se a soma das faixas por etapa ultrapassar 8, é sinal de erro de aplicação da regra, não um resultado válido — ver `regras-dimensionamento-escopo.md`. **Nunca apresentar um total de GO acima de 8 semanas**, nem na tabela-resumo nem no detalhe: a linha do GO mostra `🚩 em revisão — soma das etapas passou do teto de 8 semanas`, e os valores por etapa que causaram o estouro vão só em Observações, marcados como "não válidos"
-- Qualquer dos guardrails listados em `regra-fronteira-faixas.md` (máximo de 2 movimentações de faixa por disciplina, teto de semanas do Estrutural, etc.)
+## Quando parar e sinalizar para o PO
+
+A skill não decide sozinha nestes casos:
+
+- Terreno especial (rochoso, leito de rio, mar) ou zoneamento especial. A planilha trata como inviável.
+- Planta arquitetônica terceirizada com qualidade duvidosa (paredes desalinhadas, medidas inconsistentes). Não é avaliável pela skill, sempre manual.
+- Necessidade de contenção ou muro de arrimo. Fora do escopo do NCiv: sinalizar terceirização com o Clau.
+- Divergência entre o que o analista declarou e o que está na pasta de insumos.
+- GO com total acima de 8 semanas (regra completa em `regras/go.md`).
+- Qualquer guardrail de `regra-fronteira-faixas.md`.
 
 ## Formato da resposta
 
-Toda validação sai **sempre neste formato**, nesta ordem. Quem lê pode ser um PO ou SDR novo: escrever em frases simples, sem sigla ou jargão solto (explicar na primeira vez que aparecer, ex: "muro de arrimo (muro que segura a terra)").
+Sempre neste formato e nesta ordem. Quem lê pode ser um PO ou SDR novo: frases simples, sem sigla ou jargão solto. Explique o termo na primeira vez que aparecer, ex: "muro de arrimo (muro que segura a terra)".
 
-**Título:** a primeira linha da resposta é sempre `# Projeto [nome do cliente]`, usando o campo `Cliente:` do card (ex: `# Projeto Ademir`). Serve para identificar a conversa — o título do chat costuma ser gerado a partir da primeira mensagem; se não sair certo, quem validou renomeia o chat para `Projeto [nome do cliente]`.
+**Título:** a primeira linha é sempre `# Projeto [nome do cliente]`, com o campo `Cliente:` do card (ex: `# Projeto Ademir`). O título do chat costuma sair da primeira mensagem; se não sair certo, quem validou renomeia o chat para `Projeto [nome do cliente]`.
 
 **Status:** uma linha logo abaixo do título:
 - ✅ Pronto para proposta
 - ⚠️ Precisa de revisão do PO
 - 🚩 Parado (restrição de escopo ou possível inviabilidade)
 
-**1. Resumo do projeto** — 2-3 linhas: tipo, metragem, cidade, terreno, principais cômodos/itens especiais e disciplinas contratadas.
+**1. Resumo do projeto.** 2-3 linhas: tipo, metragem, cidade, terreno, principais cômodos e itens especiais, disciplinas contratadas.
 
-**2. Pontos de atenção** — riscos do projeto que o PO precisa decidir (restrições de escopo, terreno especial, divergências entre card e pasta). Mais grave primeiro.
+**2. Pontos de atenção.** Riscos que o PO precisa decidir (restrições de escopo, terreno especial, divergências entre card e pasta). Mais grave primeiro.
 
-**3. Insumos que faltam para validar** (se necessário) — lista do que pedir ao cliente/analista. Inclui a linha `INSUMOS:` / `Faltando:` definida em `insumos-drive.md`.
+**3. Insumos que faltam para validar** (se necessário). O que pedir ao cliente ou analista, incluindo as linhas `INSUMOS:` / `Faltando:` de `insumos-drive.md`.
 
-**4. Dimensionamento por portfólio**
-- Começa com uma **tabela-resumo** com o total de semanas de cada disciplina contratada (disciplina não contratada aparece como "não solicitado").
-- Depois, uma tabela por disciplina com **cada entrega/etapa e suas semanas** (ex: ARQ → Zoneamento, Análise topográfica, Estudo preliminar…; ELE/HID → base + cada complementar).
+**4. Dimensionamento por portfólio.**
+- Primeiro uma **tabela-resumo** com o total de semanas de cada disciplina contratada. Disciplina não contratada aparece como "não solicitado".
+- Depois uma tabela por disciplina com **cada entrega ou etapa e suas semanas** (ex: ARQ com Zoneamento, Análise topográfica, Estudo preliminar…; ELE/HID com a base e cada complementar).
 
-**5. Observações** (se necessário), separadas em:
+**5. Observações** (se necessário), em duas partes:
 - *Suposições:* tudo que a skill decidiu sem regra explícita (ex: "contei a garagem na metragem"). É o que o PO mais precisa conferir.
 - *Ajustes de fronteira:* os comentários de duas linhas de `regra-fronteira-faixas.md`, ou `Sem ajustes de fronteira.`
 
-## Estrutura de arquivos desta skill
+## Arquivos desta skill
 
 ```
-regras-dimensionamento-escopo.md   → variáveis e faixas numéricas por disciplina (ARQ, DI, EST, ELE, HID, GO)
-regra-fronteira-faixas.md          → o que fazer quando o projeto cai entre duas faixas
-insumos-drive.md                   → como localizar e ler a pasta de insumos do cliente no Drive
+regras/gerais.md            regras que valem para todas as disciplinas
+regras/arq.md, di.md, est.md, instala.md, go.md   faixas e critérios por disciplina
+regra-fronteira-faixas.md   o que fazer quando o projeto cai entre duas faixas
+insumos-drive.md            como localizar e ler a pasta de insumos do cliente no Drive
+fontes.md                   registro das fontes (referência humana, não precisa ler para dimensionar)
 ```
 
-À medida que a base de exemplos (projetos reais com input + dimensionamento validado, vindos dos 8 novos testes) for consolidada, ela deve ser adicionada em uma pasta `exemplos/` e referenciada aqui.
-
-## Status
-
-Versão inicial. Ainda pendente: (1) resultado dos 8 novos testes de dimensionamento com o template v3, rodando em projeto separado; (2) confirmação da liderança sobre metragem mínima do GO (70 vs. 100m²) e de onde vem a trava de metragem (Instala vs. GO) — enquanto isso não for resolvido, a skill não deve concluir inviabilidade por metragem no GO sozinha.
+Quando a base de exemplos validados (projetos reais com input e dimensionamento) estiver consolidada, ela entra numa pasta `exemplos/` referenciada aqui.

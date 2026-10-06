@@ -38,6 +38,9 @@ Ainda não existe pasta `exemplos/`. Quando a base de exemplos (projetos reais c
 - Planta arquitetônica terceirizada com qualidade aparentemente comprometida (paredes desalinhadas, medidas inconsistentes) → não avaliável pela skill, sempre manual.
 - Necessidade de contenção/muro de arrimo → fora de escopo do NCiv; sinalizar terceirização com o Clau.
 - Divergência entre o que o analista declarou e o que foi encontrado na pasta de insumos.
+- ARQ com área construída >500 m² → reunião de validação (dimensionar normalmente, mas marcar para o PO).
+- Prédios (Estrutural/Instala) → não recomendado, risco alto; sinalizar, o PO decide.
+- DI com reforma que envolva demolição ou construção de cômodos → fora do DI; sinalizar.
 - **GO acima de 8 semanas no total** (Quantificação + Orçamento + Planejamento). Teto prático confirmado pelo Heitor Taniguchi: 6-8 semanas; se a soma das faixas por etapa passar de 8, é erro de aplicação da regra, não resultado válido (ver GO em `regras-dimensionamento-escopo.md`). **Nunca apresentar total de GO acima de 8**, nem na tabela-resumo nem no detalhe: a linha do GO mostra `🚩 em revisão — soma das etapas passou do teto de 8 semanas`, e os valores por etapa que causaram o estouro vão só em Observações, marcados como "não válidos".
 - Qualquer guardrail de `regra-fronteira-faixas.md` (máximo de 2 movimentações de faixa por disciplina, teto de semanas do Estrutural, etc.).
 
@@ -61,6 +64,7 @@ Público: pode ser um PO ou SDR novo. Frases simples, sem sigla ou jargão solto
 **4. Dimensionamento por portfólio**
 - Começa com uma **tabela-resumo** com o total de semanas de cada disciplina contratada (disciplina não contratada aparece como "não solicitado").
 - Depois, uma tabela por disciplina com **cada entrega/etapa e suas semanas** (ex: ARQ → Zoneamento, Análise topográfica, Estudo preliminar…; ELE/HID → base + cada complementar).
+- **DI: luminotécnico e previsão de pontos hidro/elétricos são opcionais** — só entram se o card pedir. Se não pedir, listar como "não solicitado" e não somar no total.
 
 **5. Observações** (se necessário), separadas em:
 - *Suposições:* tudo que a skill decidiu sem regra explícita (ex: "contei a garagem na metragem"). É o que o PO mais precisa conferir.

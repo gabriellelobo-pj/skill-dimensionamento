@@ -81,7 +81,7 @@ Vieram da comparação com a validação da Lot nos testes do template v3 — a 
 - **Viabilidade:** 0,5 é o padrão; +0,5 (total 1) só com pedido muito específico ou difícil do cliente, que exige ir mais a fundo (ex: um espaço de serralheria).
 - **Projeto legal 2,5 ("terreno em aclive")** só para aclive relevante — da ordem de ~6 m de desnível — que exija **projeto de movimentação de terra** (+1 semana; hoje só a Lot sabe fazer). Terreno levemente inclinado → projeto legal normal (**1**). Com **só foto** não dá para saber o desnível: usar 1 e registrar em *Suposições* que pode subir se o levantamento mostrar desnível relevante.
 - **Piscina não muda a faixa do ARQ.** Não soma nada nem empurra para a faixa mais alta ("ninguém vai ficar três dias modelando a piscina") — o que dimensiona é a metragem. A Lot tirou a piscina da planilha.
-- **Não existe teto prático para o ARQ** — a regra é tentar aceitar tudo (diferente do Estrutural e do GO).
+- **Não existe teto prático para o ARQ** — a regra é tentar aceitar tudo (diferente do Estrutural e do GO). Exceção da planilha oficial: **área construída >500 m² → reunião de validação** (não é inviável; dimensionar normalmente e marcar para revisão do PO).
 - **Anteprojeto/Revit — confirmado, ponto fechado:** a topografia (ter ou não levantamento, ou só imagem/localização exata) **não influencia**. Seguir só a faixa única da planilha (2-3,5 semanas), haja ou não planta prévia detalhada. Não há faixa separada "com planta prévia".
 
 ### Variáveis secundárias
@@ -95,9 +95,12 @@ Todas levam à mesma consequência: **aprofundar o estudo de viabilidade**.
 
 - **Não fazem implantação de múltiplas edificações no mesmo terreno** (ex: condomínio com portaria + salão de festas + quadra + academia) — falta de know-how de traçado
 - **Recusam projetos "exorbitantes"** (castelos, condomínios, casas milionárias de altíssimo padrão) — critério de viabilidade na planilha oficial
-- **Não fazem urbanismo, paisagismo, nem implantação de múltiplas unidades no terreno**
-- **Critério real de inclinação é a necessidade de contenção**, não o grau isolado (ver Análise topográfica). Terreno que exige técnicas de contenção → viabilidade comprometida
+- **Não fazem urbanismo (masterplan), paisagismo, nem implantação de múltiplas unidades no terreno**
+- **Critério real de inclinação é a necessidade de contenção**, não o grau isolado (ver Análise topográfica). Desnível 1:1 ou terreno que exige técnicas de contenção → viabilidade comprometida
+- **Também na lista de viabilidade da planilha:** falta de insumos para validação, zoneamento especial, tecnologias construtivas ainda não exploradas, projeto executivo de sistema
 - **DI não dimensiona pontos hidráulicos e elétricos** — só indicação de posicionamento recomendado
+
+**Modelagem por metragem/pavimento (150-300m² = 2 … >1000m² = 4,5 ou inviável)** é do bloco **ARQ/GBE — Modelagem** da planilha (famílias, tipos, modelo federado, por pavimento), não da Concepção do ARQ nem do DI. Não usar essas faixas para dimensionar ARQ ou DI de concepção.
 
 ---
 
@@ -105,40 +108,49 @@ Todas levam à mesma consequência: **aprofundar o estudo de viabilidade**.
 
 **Fonte:** planilha de validação oficial (aba separada do ARQ, mesma PO — Isabela Lot).
 
-### Faixas numéricas
+### Faixas numéricas — entregas padrão (sempre entram no total)
 
 | Etapa | Critério | Semanas |
 |---|---|---|
-| Representação geométrica no Sketchup | 1 cômodo | 0,5 |
-| | 2-4 cômodos ou até 100m² | 1 |
-| | 5+ cômodos ou >100m² | 1,5 |
+| Representação geométrica da arquitetura no Revit | 1 cômodo | 0,5 |
+| | 2-4 cômodos ou até 150m² | 1 |
+| | 5+ cômodos ou >150m² | 1,5 |
 | Modelagem dos móveis | 1-5 móveis | 1,5 |
 | | 5-10 móveis | 2,5 |
 | | 10-15 móveis | 3 |
 | | 15+ móveis | 3,5 |
 | Paginação | 1 cômodo | 0,5 |
-| | 2-4 cômodos ou até 50m² | 1 |
-| | 5+ cômodos ou >50m² | 1,5 |
-| Modelagem (por metragem) | 150-300m² | 2 |
-| | 400-800m² | 3 |
-| | 800-1000m² | 4 |
-| | >1000m² | 4,5 ou **inviável** |
+| | 2-4 cômodos ou até 50m² | 0,5 |
+| | 5+ cômodos ou >50m² | 1 |
 | Pranchas de Marcenaria e Marmoaria | 1-5 móveis | 1 |
 | | 5-10 móveis | 1,5 |
 | | 10-15 móveis | 2 |
 | | 15+ móveis | 2,5 |
-| Projeto luminotécnico | 1 cômodo | 0,5 |
-| | 2-4 cômodos ou até 50m² | 1 |
-| | 5+ cômodos ou >50m² | 1,5 |
-| | Se pedir previsão de pontos hidro/elétrico | +1 semana |
 | Caderno de Projetos | 1 cômodo | 0,5 |
 | | 2-4 cômodos ou até 100m² | 1 |
 | | 5+ cômodos ou >100m² | 1 |
 | Renderização | 1 cômodo | 0,5 |
-| | 2-4 cômodos | 1 |
+| | 2-4 cômodos | 0,5 |
 | | 5+ cômodos | 1 |
 
-- **Restrição:** DI **não dimensiona pontos hidráulicos e elétricos** — só indica posicionamento recomendado.
+### Entregas opcionais — só se o cliente pedir
+
+**Não fazem parte do DI padrão.** Só dimensionar se o card/cliente pedir explicitamente; caso contrário, aparecem na tabela do DI como "não solicitado" e **não somam no total**. Card que não menciona → não incluir (não assumir que o cliente quer).
+
+| Etapa | Critério | Semanas |
+|---|---|---|
+| Projeto luminotécnico | 1 cômodo | 0,5 |
+| | 2-4 cômodos ou até 50m² | 0,5 |
+| | 5+ cômodos ou >50m² | 1 |
+| Previsão de pontos hidráulicos e elétricos | Se o cliente pedir | +1 semana |
+
+- **Previsão de pontos ≠ dimensionamento.** DI **não dimensiona pontos hidráulicos e elétricos** — só faz uma indicação de posicionamento possível/recomendado. Se o cliente quer pontos dimensionados, é escopo do Elétrico/Hidráulico.
+
+### Viabilidade (planilha oficial)
+
+- **Falta de insumos necessários para validação** → não validar; pedir os insumos.
+- **Reforma que envolva demolição ou construção de cômodos** → fora do DI; sinalizar para o PO (é escopo de ARQ, não de interiores).
+- **Dimensionamento de pontos hidráulicos e elétricos** → inviável no DI (ver acima).
 - **Gargalo de capacitação (crítico, não numérico):** hoje só a Lot sabe fazer DI no Revit (a validação padrão é no Sketchup). Não há processo formal de validação de DI no Revit nem responsável definido para criá-lo após a saída dela para CP.
 
 ---
@@ -190,7 +202,8 @@ Geométricos, só visíveis na planta — nenhum é dedutível de metragem, ende
 - **Só concreto armado** como solução estrutural própria (executada internamente).
 - **Steel frame, tijolo ecológico e alvenaria estrutural** não são executados internamente, mas podem ser **terceirizados com o engenheiro parceiro Clau**. O dimensionamento desses sistemas não está mapeado aqui: perguntar ao Clau, não usar as faixas de concreto armado.
 - **Muro de arrimo nunca foi feito internamente pelo Estrutural do NCiv** — fora do escopo padrão, não ajuste de prazo.
-- **Inviáveis:** pavimentação (nunca aceitam, mesmo com leads de prefeitura/condomínio), edifícios muito altos, estruturas não convencionais, projetos de contenção de alta complexidade, infraestrutura urbana.
+- **Inviáveis (planilha oficial):** pavimentação (nunca aceitam, mesmo com leads de prefeitura/condomínio), reformas, edifícios muito altos, estruturas não convencionais, projetos de contenção de alta complexidade, infraestrutura urbana, projetos com elevador, muro de arrimo.
+- **Não recomendado — risco alto:** prédios. Não é inviável, mas o risco é muito grande; recomendação é não aceitar → sinalizar para o PO.
 - **⚠ Elevador = inviável total** (mudança recente na planilha oficial: saiu de "complexidade +1 semana"). A planilha ainda tem um texto de referência antigo não corrigido — desconsiderar qualquer menção a elevador como "+1 semana" em versões antigas deste ou de outros documentos.
 
 ---
@@ -241,6 +254,7 @@ Ainda **não está na planilha oficial** — só levantada na bench com o Paulin
 - Metragem quebrada dimensiona no limite superior (ex: 300m² é tratado como 400m²)
 - Metragem desconhecida do cliente: se for casa térrea, estimar ~200m²
 - Soma final quebrada arredonda para cima (ex: 3,5 → 4)
+- **Complementares por metragem:** casa de **400m² para cima** → cada complementar soma +0,5 a mais (vale para Elétrico e Hidráulico)
 
 ---
 
@@ -270,6 +284,7 @@ O esgoto escoa por gravidade. Se a casa fica **mais baixa** que o ponto de colet
 
 - **Reforma só é possível com as plantas estruturais, elétricas e hidrossanitárias existentes** — no geral, "reforma" no núcleo significa fazer uma nova casa no mesmo terreno
 - **DI + Instala vendidos sozinhos (sem ARQ) sempre deu problema** — se vender assim, o escopo precisa estar muito bem definido em contrato
+- **Prédios / edifícios muito altos: não recomendado — risco alto.** Não é todo inviável, mas recomendação é não aceitar → sinalizar para o PO.
 - **Residências multifamiliares:** não são sempre inviáveis, mas têm limitações técnicas — fotovoltaico não atende a demanda de energia mais alta; padrão de entrada e hidrômetro são impeditivo técnico, mas o builder resolve
 
 ### Decisões confirmadas nos testes do template v3 (30/09/2026)
@@ -351,3 +366,4 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 | — | Heitor Tani | GO | Pontos de atenção por etapa, pendências "a confirmar" |
 | — | Planilha de validação oficial (Google Sheets, versão com alterações da Lot) | Todas | Faixas numéricas de ARQ, DI, Estrutural, Elétrico, Hidráulico, GO |
 | 01/10/2026 | Gabi (otimização) | Todas | Reescrita dos 4 .md para leitura de agente — sem mudança de regra nem de número |
+| 06/10/2026 | Planilha de validação oficial (atualizada pelos POs) + Gabi | DI (principal), ARQ, Estrutural, Instala | DI: representação no Revit com corte em 150m²; paginação 0,5/0,5/1; renderização 0,5/0,5/1; luminotécnico 0,5/0,5/1 e **opcional (só se o cliente pedir — Gabi)**; previsão de pontos +1 só se pedir; viabilidade do DI; "Modelagem por metragem" saiu do DI (é ARQ/GBE). ARQ: >500m² → reunião de validação; itens de viabilidade. EST: reformas, elevador e muro de arrimo na lista de inviáveis; prédios não recomendados. Instala: prédios não recomendados; complementares +0,5 a partir de 400m² |

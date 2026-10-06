@@ -168,6 +168,9 @@ Todas levam à mesma consequência: **aprofundar o estudo de viabilidade**.
 | | 50-150m² | 0,5 |
 | | >150m² | 1 |
 
+- **Representação geométrica e Renderização são só por metragem** (0-50 / 50-150 / >150m²). **Não usar número de cômodos** nessas duas etapas — a planilha mudou em 06/10/2026. Na tabela de saída, o critério é a metragem (ex: "42,5 m² → 0-50m²"), nunca "5+ cômodos".
+- Paginação, Caderno de Projetos e Luminotécnico continuam por cômodos **ou** metragem, como na tabela.
+
 ### Entregas opcionais — só se o cliente pedir
 
 **Não fazem parte do DI padrão.** Só dimensionar se o card/cliente pedir explicitamente; caso contrário, aparecem na tabela do DI como "não solicitado" e **não somam no total**. Card que não menciona → não incluir (não assumir que o cliente quer).

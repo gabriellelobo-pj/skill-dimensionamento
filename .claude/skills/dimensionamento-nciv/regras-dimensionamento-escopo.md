@@ -1,8 +1,8 @@
 # Regras de dimensionamento de escopo — conhecimento tácito dos POs
 
-O que os POs usam para dimensionar escopo, para que o modelo raciocine na mesma ordem e olhe as mesmas variáveis que um PO olharia. As seis disciplinas (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) têm variáveis e faixas levantadas a partir da planilha de validação oficial (Google Sheets, versão com alterações da Lot) e das bench individuais de cada PO.
+O que os POs usam para dimensionar escopo, para que o modelo raciocine na mesma ordem e olhe as mesmas variáveis que um PO olharia. As seis disciplinas (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) têm variáveis e faixas levantadas a partir da planilha de validação oficial (Google Sheets, versão com alterações da Lot) e das bench individuais de cada PO. Há ainda o bloco **ARQ/GBE — Modelagem**, para quando o cliente quer só modelagem de projeto existente (ex: 2D → 3D).
 
-**Índice:** Regras de uso · Regras transversais · ARQ · DI · Estrutural · Elétrico · Hidráulico · GO · Lacunas · Registro das fontes
+**Índice:** Regras de uso · Regras transversais · ARQ · ARQ/GBE (Modelagem) · DI · Estrutural · Elétrico · Hidráulico · GO · Lacunas · Registro das fontes
 
 ---
 
@@ -100,7 +100,42 @@ Todas levam à mesma consequência: **aprofundar o estudo de viabilidade**.
 - **Também na lista de viabilidade da planilha:** falta de insumos para validação, zoneamento especial, tecnologias construtivas ainda não exploradas, projeto executivo de sistema
 - **DI não dimensiona pontos hidráulicos e elétricos** — só indicação de posicionamento recomendado
 
-**Modelagem por metragem/pavimento (150-300m² = 2 … >1000m² = 4,5 ou inviável)** é do bloco **ARQ/GBE — Modelagem** da planilha (famílias, tipos, modelo federado, por pavimento), não da Concepção do ARQ nem do DI. Não usar essas faixas para dimensionar ARQ ou DI de concepção.
+**Modelagem por metragem/pavimento (150-300m² = 2 … >1000m² = 4,5 ou inviável)** é do bloco **ARQ/GBE — Modelagem** (seção abaixo), não da Concepção do ARQ nem do DI. Não usar essas faixas para dimensionar ARQ ou DI de concepção.
+
+---
+
+## ARQ/GBE — Modelagem
+
+**Quando usar:** o cliente quer **modelagem** de um projeto que já existe (ex: passar de 2D para 3D / BIM), não um projeto de concepção. Dimensionar só este bloco, não as etapas de Concepção do ARQ.
+**Fonte:** planilha de validação oficial, bloco "Validação de Leads (ARQ/GBE) — por pavimento".
+
+### Faixas numéricas (planilha marca "POR PAVIMENTO")
+
+| Etapa | Critério | Semanas |
+|---|---|---|
+| Preparação — famílias criadas | 0 famílias | 0 |
+| | 1-5 famílias | 2 |
+| | 5+ famílias | 2,5 ou **inviável** |
+| Preparação — tipos criados pela parametrização | 1-5 tipos | 0,5 |
+| | 5-10 tipos | 1 |
+| | 10+ tipos | 1,5 |
+| Modelagem | 150-300m² | 2 |
+| | 400-800m² | 3 |
+| | 800-1000m² | 4 |
+| | >1000m² | 4,5 ou **inviável** |
+| Criação do modelo federado (todos os pavimentos) | 3 pavimentos tipo | 1,5 |
+| | 4 pavimentos tipo | 2 |
+| | 5+ pavimentos tipo | 2,5 |
+
+- **Premissa da planilha:** "analistas capacitados suficientes para a execução de todos os pavimentos tipos do empreendimento".
+- **Mais de um tipo de pavimento — ainda não definido** se as etapas por pavimento rodam em paralelo (conta uma vez, o pavimento mais pesado) ou somam para cada tipo de pavimento. A skill **não decide**: mostra o valor de **um** pavimento (Famílias + Tipos + Modelagem) + modelo federado, explica as duas leituras em *Suposições* e marca ⚠️ para revisão do PO. Com um único pavimento não há ambiguidade.
+- **Modelo federado** só tem faixa a partir de 3 pavimentos tipo; com 1-2, não incluir e registrar em *Suposições*.
+- **Buraco 300-400m²** → `regra-fronteira-faixas.md` (faixa acima). **Abaixo de 150m²** a planilha não tem faixa → não inventar; perguntar ao PO.
+
+### Viabilidade (planilha oficial)
+
+- **Falta de insumos necessários para validação** → não validar; pedir os insumos.
+- Pontos que definem a viabilidade: **quantidade e complexidade de famílias** a desenvolver, **número de tipos de pavimentos** do empreendimento e **metragem**. Topo das faixas (5+ famílias, >1000m²) = "ou inviável" → revisão humana, a skill não recusa sozinha.
 
 ---
 
@@ -367,3 +402,4 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 | — | Planilha de validação oficial (Google Sheets, versão com alterações da Lot) | Todas | Faixas numéricas de ARQ, DI, Estrutural, Elétrico, Hidráulico, GO |
 | 01/10/2026 | Gabi (otimização) | Todas | Reescrita dos 4 .md para leitura de agente — sem mudança de regra nem de número |
 | 06/10/2026 | Planilha de validação oficial (atualizada pelos POs) + Gabi | DI (principal), ARQ, Estrutural, Instala | DI: representação no Revit com corte em 150m²; paginação 0,5/0,5/1; renderização 0,5/0,5/1; luminotécnico 0,5/0,5/1 e **opcional (só se o cliente pedir — Gabi)**; previsão de pontos +1 só se pedir; viabilidade do DI; "Modelagem por metragem" saiu do DI (é ARQ/GBE). ARQ: >500m² → reunião de validação; itens de viabilidade. EST: reformas, elevador e muro de arrimo na lista de inviáveis; prédios não recomendados. Instala: prédios não recomendados; complementares +0,5 a partir de 400m² |
+| 06/10/2026 | Planilha de validação oficial + Gabi | ARQ/GBE | Bloco de Modelagem adicionado (famílias, tipos, modelagem por metragem, modelo federado; viabilidade). Usado quando o cliente quer modelagem (ex: 2D → 3D). Soma com vários tipos de pavimento em aberto → PO revisa |

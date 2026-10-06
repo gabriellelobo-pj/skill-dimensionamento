@@ -1,11 +1,11 @@
 ---
 name: dimensionamento-nciv
-description: Dimensiona automaticamente propostas de Concepção do NCiv (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) a partir dos insumos de um card de lead. Use quando o usuário pedir para dimensionar, validar ou estimar prazo de um projeto/proposta do NCiv, ou mencionar um card com dados de terreno, metragem, disciplinas contratadas e itens especiais (fotovoltaico, piscina, subsolo).
+description: Dimensiona automaticamente propostas de Concepção do NCiv (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) e de Modelagem ARQ/GBE (ex: passar projeto de 2D para 3D) a partir dos insumos de um card de lead. Use quando o usuário pedir para dimensionar, validar ou estimar prazo de um projeto/proposta do NCiv, ou mencionar um card com dados de terreno, metragem, disciplinas contratadas e itens especiais (fotovoltaico, piscina, subsolo).
 ---
 
 # Skill de Dimensionamento Automático — NCiv
 
-Dimensiona propostas de Concepção (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) a partir do card do lead. Um PO humano sempre revisa o resultado antes de virar proposta: a skill reduz o tempo de validação, não substitui a revisão.
+Dimensiona propostas de Concepção (ARQ, DI, Estrutural, Elétrico, Hidráulico, GO) a partir do card do lead, e também pedidos de **Modelagem ARQ/GBE** (cliente quer só modelar um projeto existente, ex: 2D → 3D). Um PO humano sempre revisa o resultado antes de virar proposta: a skill reduz o tempo de validação, não substitui a revisão.
 
 ## Arquivos desta pasta (ler sob demanda)
 
@@ -19,7 +19,7 @@ Ainda não existe pasta `exemplos/`. Quando a base de exemplos (projetos reais c
 
 ## Procedimento
 
-1. Identificar **quais disciplinas foram contratadas** no card (nem todo lead pede todas).
+1. Identificar **quais disciplinas foram contratadas** no card (nem todo lead pede todas). Se o pedido é só **modelagem** de projeto existente (ex: 2D → 3D), usar o bloco ARQ/GBE — Modelagem em vez das etapas de Concepção do ARQ.
 2. Se houver Drive/pasta do cliente: seguir `insumos-drive.md` antes de preencher terreno (como localizar a pasta, o que extrair de cada arquivo, vocabulário permitido para inclinação). Nunca inventar número de inclinação a partir de foto.
 3. Para cada disciplina contratada: aplicar `regras-dimensionamento-escopo.md`.
 4. Caso perto do limite entre faixas: aplicar `regra-fronteira-faixas.md`.

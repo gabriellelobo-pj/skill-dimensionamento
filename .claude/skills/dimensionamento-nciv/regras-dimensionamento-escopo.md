@@ -147,9 +147,9 @@ Todas levam à mesma consequência: **aprofundar o estudo de viabilidade**.
 
 | Etapa | Critério | Semanas |
 |---|---|---|
-| Representação geométrica da arquitetura no Revit | 1 cômodo | 0,5 |
-| | 2-4 cômodos ou até 150m² | 1 |
-| | 5+ cômodos ou >150m² | 1,5 |
+| Representação geométrica da arquitetura no Revit | 0-50m² | 0,5 |
+| | 50-150m² | 1 |
+| | >150m² | 1,5 |
 | Modelagem dos móveis | 1-5 móveis | 1,5 |
 | | 5-10 móveis | 2,5 |
 | | 10-15 móveis | 3 |
@@ -164,9 +164,9 @@ Todas levam à mesma consequência: **aprofundar o estudo de viabilidade**.
 | Caderno de Projetos | 1 cômodo | 0,5 |
 | | 2-4 cômodos ou até 100m² | 1 |
 | | 5+ cômodos ou >100m² | 1 |
-| Renderização | 1 cômodo | 0,5 |
-| | 2-4 cômodos | 0,5 |
-| | 5+ cômodos | 1 |
+| Renderização | 0-50m² | 0,5 |
+| | 50-150m² | 0,5 |
+| | >150m² | 1 |
 
 ### Entregas opcionais — só se o cliente pedir
 
@@ -403,3 +403,4 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 | 01/10/2026 | Gabi (otimização) | Todas | Reescrita dos 4 .md para leitura de agente — sem mudança de regra nem de número |
 | 06/10/2026 | Planilha de validação oficial (atualizada pelos POs) + Gabi | DI (principal), ARQ, Estrutural, Instala | DI: representação no Revit com corte em 150m²; paginação 0,5/0,5/1; renderização 0,5/0,5/1; luminotécnico 0,5/0,5/1 e **opcional (só se o cliente pedir — Gabi)**; previsão de pontos +1 só se pedir; viabilidade do DI; "Modelagem por metragem" saiu do DI (é ARQ/GBE). ARQ: >500m² → reunião de validação; itens de viabilidade. EST: reformas, elevador e muro de arrimo na lista de inviáveis; prédios não recomendados. Instala: prédios não recomendados; complementares +0,5 a partir de 400m² |
 | 06/10/2026 | Planilha de validação oficial + Gabi | ARQ/GBE | Bloco de Modelagem adicionado (famílias, tipos, modelagem por metragem, modelo federado; viabilidade). Usado quando o cliente quer modelagem (ex: 2D → 3D). Soma com vários tipos de pavimento em aberto → PO revisa |
+| 06/10/2026 | Planilha de validação oficial | DI | Representação geométrica e Renderização passaram a ser por **metragem** (0-50 / 50-150 / >150m²) em vez de nº de cômodos; semanas iguais |

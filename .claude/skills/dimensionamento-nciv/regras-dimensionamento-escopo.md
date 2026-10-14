@@ -340,20 +340,29 @@ O esgoto escoa por gravidade. Se a casa fica **mais baixa** que o ponto de colet
 
 ## GO
 
-**Fonte:** planilha de validação oficial + bench com Heitor Tani (PO de GO).
+**Fonte:** planilha de validação oficial (aba "PdO", antiga "GO") + bench com Heitor Tani (PO de GO).
 **Variável principal:** **número de disciplinas contratadas** — não principalmente metragem, ao contrário das outras disciplinas.
 
 ### Estrutura e faixas numéricas
 
-Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxima (~200m², todas as disciplinas):
+Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxima (até 500m², todas as disciplinas):
 
 | Etapa | Mínimo | Máximo |
 |---|---|---|
 | Quantificação | 2 semanas | 4 semanas |
-| Orçamento | 3 semanas | 4 semanas |
+| Orçamento | 1 semana | 4 semanas |
 | Planejamento | 2 semanas | 4 semanas |
 
 **Teto do GO no total:** Quantificação + Orçamento + Planejamento tem teto prático de **6-8 semanas** (confirmado por Heitor Taniguchi). Soma acima de 8 = erro na aplicação da regra, não resultado válido → parar e marcar para revisão humana, com comentário de duas linhas. **Nunca apresentar total de GO acima de 8 semanas** (nem na tabela-resumo, nem no detalhe): mostrar `🚩 em revisão` e colocar os valores por etapa só em Observações, marcados como "não válidos".
+
+- **Orçamento mínimo caiu de 3 para 1 semana** porque o orçamento agora é feito com IA (planilha, 13/10/2026). O máximo segue em 4.
+
+### Insumos e viabilidade (planilha oficial)
+
+- **Insumo para validação e para o projeto:** os **IFCs terceirizados** (disciplinas que não foram concebidas pelo NCiv). Se o GO usa disciplina de terceiros, pedir o IFC já na validação.
+- **Tamanho do IFC** é critério de viabilidade (cuidado com terceirizadas). **IFC muito pesado ou vindo do SketchUp, sem informação → inviável.**
+- **Base orçamentária que não seja a SINAPI → inviável.**
+- Como nas outras disciplinas, a skill não recusa sozinha: sinaliza a inviabilidade para o PO.
 
 ### Pontos de atenção por etapa (planilha oficial)
 
@@ -361,14 +370,14 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 - Estrutural: regras de extração ensinadas no treinamento, não muda com tamanho — impacto **baixo**
 - Instala: ainda muito manual/automático, segue método do treinamento (deve evoluir, mas não tão cedo) — impacto **baixo**
 - **ARQ "manda"**: o mais perigoso, costuma vir modelado com menos informação, itens perdidos garimpados na mão, **define o prazo da etapa** — impacto **alto**
-- Disciplina modelada por terceiros (não pela própria equipe): **+1 semana por padrão**, exceto se vier do Iberque ou do Builder
+- Disciplina modelada por terceiros (não pela própria equipe): **+1 semana por padrão**, exceto se vier do Eberick ou do Builder. IFC terceirizado entra como insumo já na validação; IFC muito pesado ou do SketchUp, sem informação, pode inviabilizar
 
 **Orçamento:**
-- Só pode usar a **SINAPI** — não representa bem padrão alto, serve para baixo e médio padrão — impacto **crucial**
+- Só pode usar a **SINAPI** — outra base orçamentária torna o projeto **inviável**; não representa bem padrão alto, serve para baixo e médio padrão — impacto **crucial**
 - **Instala "manda"**: quanto maior o Instala, mais itens associados a orçar, e são itens ruins de orçar — impacto **alto**
 - Complementares no Instala (fotovoltaico, reuso, PCI, etc.) puxam o prazo para cima: **+2 semanas com todas**
 - Estrutural é tranquilo; ARQ dá trabalho mas não muda muito o prazo final — impacto **baixo**
-- Processo hoje muito manual/braçal — já se estudou usar IA, ainda não confirmado em produção
+- **Orçamento agora é feito com IA**, por isso ficou mais rápido: no mínimo (70m²) caiu de 3 para 1 semana (**-2 semanas no MIN**); no máximo (até 500m²) segue em 4
 
 **Planejamento:**
 - Ao contrário das outras etapas, **todas as disciplinas pesam praticamente igual**
@@ -378,9 +387,8 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 
 ### Pendências "A CONFIRMAR" na planilha
 
-- **Metragem mínima:** planilha registra 70m², um áudio de quantificação cita 100m². Não definido qual vale.
 - **De onde vem a trava de metragem:** acima do limite, quem barra é o **Instala**, não o GO — ainda não formalizado. A skill não conclui inviabilidade por metragem no GO sozinha.
-- **Como as etapas se combinam frente ao teto de 8:** somando as faixas, o mínimo já dá 7 semanas (~70m²) e o máximo 12 (~200m²) — qualquer projeto acima de ~100m² com as três etapas ultrapassa o teto. Não está definido se as etapas se sobrepõem (e quanto) ou se as faixas precisam ser revistas. Até confirmar com o Heitor, a skill não compensa sozinha: todo GO acima de 8 vai para revisão humana.
+- **Como as etapas se combinam frente ao teto de 8:** somando as faixas, o mínimo dá 5 semanas (~70m²) e o máximo 12 (até 500m²) — projetos maiores, com as três etapas, ultrapassam o teto. Não está definido se as etapas se sobrepõem (e quanto) ou se as faixas precisam ser revistas. Até confirmar com o Heitor, a skill não compensa sozinha: todo GO acima de 8 vai para revisão humana.
 - **Trecho de áudio inaudível** sobre planejamento, com números não confirmados ("...m² é duas semanas, 144, 210, talvez seis") — não transcrito para não inventar número.
 
 ---
@@ -407,3 +415,4 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 | 06/10/2026 | Planilha de validação oficial (atualizada pelos POs) + Gabi | DI (principal), ARQ, Estrutural, Instala | DI: representação no Revit com corte em 150m²; paginação 0,5/0,5/1; renderização 0,5/0,5/1; luminotécnico 0,5/0,5/1 e **opcional (só se o cliente pedir — Gabi)**; previsão de pontos +1 só se pedir; viabilidade do DI; "Modelagem por metragem" saiu do DI (é ARQ/GBE). ARQ: >500m² → reunião de validação; itens de viabilidade. EST: reformas, elevador e muro de arrimo na lista de inviáveis; prédios não recomendados. Instala: prédios não recomendados; complementares +0,5 a partir de 400m² |
 | 06/10/2026 | Planilha de validação oficial + Gabi | ARQ/GBE | Bloco de Modelagem adicionado (famílias, tipos, modelagem por metragem, modelo federado; viabilidade). Usado quando o cliente quer modelagem (ex: 2D → 3D). Soma com vários tipos de pavimento em aberto → PO revisa |
 | 06/10/2026 | Planilha de validação oficial | DI | Representação geométrica e Renderização passaram a ser por **metragem** (0-50 / 50-150 / >150m²) em vez de nº de cômodos; semanas iguais |
+| 13/10/2026 | Planilha de validação oficial (aba GO renomeada para "PdO") | GO | Máximo passou de ~200m² para **até 500m²**; Orçamento mínimo 3 → **1 semana** (orçamento com IA); insumo: IFCs terceirizados; inviáveis: IFC muito pesado ou do SketchUp sem informação, base que não seja a SINAPI; "Iberque" corrigido para Eberick; divergência 70 vs. 100m² saiu da lista "a confirmar" (vale 70m²) |

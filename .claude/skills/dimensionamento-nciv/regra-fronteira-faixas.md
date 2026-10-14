@@ -13,7 +13,7 @@ Não existe regra única. Uma versão anterior assumia "sempre subir de faixa" �
 | **ARQ** | Para **baixo** (nunca abaixo de 6 semanas) | Isabela Lot |
 | **Elétrico / Hidráulico** | Para **cima**, a partir de ~160-170m² (valor aproximado, não confirmado com precisão) | Paulinho |
 | **Estrutural** | Para **cima** | Julia Lee ("Julee") |
-| **GO** | Não se aplica da mesma forma — só dois pontos-âncora (70m² e 200m²), tratado como interpolação (tipo 7 abaixo) | Planilha oficial |
+| **GO** | Não se aplica da mesma forma — só dois pontos-âncora (70m² e 500m²), tratado como interpolação (tipo 7 abaixo) | Planilha oficial |
 
 **Antes de aplicar qualquer passo abaixo, identifique a disciplina e confirme a direção padrão dela nesta tabela.** Os passos dizem *como* ajustar (faixa inteira vs. meio-termo); a direção de partida (pra cima ou pra baixo) vem desta tabela, não é universal.
 
@@ -57,7 +57,7 @@ Margem pequena = até 10% acima (ou abaixo, no ARQ) do limite. 130m² contra lim
 | 4 | Dois critérios da mesma célula discordam | Estudo preliminar: `<120m² ou com planta definida` contra `>120m² ou sem planta definida`. Casa de 150m² com planta definida se encaixa nas duas | Vale o critério que aponta mais alto, depois aplicar o teste passo 2 vs. passo 3 |
 | 5 | Critérios de natureza diferente na mesma linha | Ex: Estudo preliminar mistura metragem com tipo (`>200m² ou sobrado`). *(Análise topográfica não entra mais aqui: desde 30/09/2026 só o desnível conta, a área do terreno não.)* | Vale o que aponta mais alto, mesmo teste |
 | 6 | Linha sem critério nenhum | Modelagem no Revit, anteprojeto e renderização têm as células de complexidade vazias | Herdar a coluna em que o projeto caiu no Estudo preliminar e registrar que foi por herança |
-| 7 | Sem faixa, só dois pontos | GO tem apenas 70m² e 200m² como âncoras (70m² tem divergência não resolvida — ver Guardrails) | Interpolar e arredondar para cima em múltiplos de 0,5 |
+| 7 | Sem faixa, só dois pontos | GO tem apenas 70m² e 500m² como âncoras | Interpolar e arredondar para cima em múltiplos de 0,5 |
 
 ---
 
@@ -113,6 +113,5 @@ Motivo: elevador é inviável direto no Estrutural (mudança recente), não é c
 
 A planilha não resolve e a skill não deve inventar. Caso que encostar em qualquer um → sinalizar para revisão humana.
 
-- **Metragem mínima do GO.** Planilha oficial registra 70m²; um áudio da quantificação cita 100m². Ainda "a confirmar" na planilha. Projetos entre 70 e 100m² ficam sem chão até isso ser definido.
 - **Herança das linhas sem critério (tipo 6).** É inferência: modelagem no Revit, anteprojeto e renderização não dizem por qual critério se classificam; assume-se que seguem o Estudo preliminar. Precisa de confirmação do time.
 - **De onde vem a trava de metragem do GO.** Acima do limite quem barra é o **Instala**, não o GO — sinalizado como "a confirmar" na planilha, ainda não formalizado. A skill não conclui inviabilidade por metragem no GO sozinha.

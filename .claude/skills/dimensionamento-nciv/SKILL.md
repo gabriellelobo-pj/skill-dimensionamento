@@ -72,4 +72,4 @@ Público: pode ser um PO ou SDR novo. Frases simples, sem sigla ou jargão solto
 
 ## Status da skill
 
-Versão inicial. Pendente: (1) resultado dos 8 novos testes de dimensionamento com o template v3, rodando em projeto separado; (2) confirmação da liderança sobre metragem mínima do GO (70 vs. 100m²) e de onde vem a trava de metragem (Instala vs. GO). Enquanto (2) não for resolvido, a skill não conclui inviabilidade por metragem no GO sozinha.
+Versão inicial. Pendente: (1) resultado dos 8 novos testes de dimensionamento com o template v3, rodando em projeto separado; (2) confirmação da liderança sobre de onde vem a trava de metragem do GO (Instala vs. GO). A metragem mínima do GO ficou em 70m² (planilha de 13/10/2026). Enquanto (2) não for resolvido, a skill não conclui inviabilidade por metragem no GO sozinha.

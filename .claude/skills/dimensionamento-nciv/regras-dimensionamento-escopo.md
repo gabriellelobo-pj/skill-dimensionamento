@@ -58,8 +58,9 @@ Usar a **área construída escrita no card, como está**. Ela já inclui a garag
 | | Cliente com ideias prontas mirabolantes | 1 |
 | Estudo Preliminar | Metragem <120m² ou com planta definida | 1 |
 | | Metragem >120m² ou sem planta definida | 1,5 |
-| | Metragem >200m² ou sobrado | 2 |
-| | >300m² ou sobrado com subsolo/adicionais (piscina **não** conta — ver abaixo) | 2,5 |
+| | Metragem >200m² | 2 |
+| | >300m² com subsolo ou adicionais (piscina **não** conta — ver abaixo) | 2,5 |
+| Sobrado (planilha, 29/10/2026) | **+0,5** sobre a faixa de metragem do Estudo Preliminar. Sobrado não muda a faixa e não soma no Anteprojeto nem na Renderização | +0,5 |
 | Anteprojeto (modelagem no Revit — já com 0,5 de gordura embutida) | Mesmas 4 faixas acima | 2 / 2,5 / 3 / 3,5 |
 | Renderização | Mesmas 4 faixas acima | 0,5 / 0,5 / 1 / 1 |
 | Projeto Legal | Documentação exigida breve | 1 |
@@ -163,7 +164,7 @@ Todas levam à mesma consequência: **aprofundar o estudo de viabilidade**.
 | | 15+ móveis | 2,5 |
 | Caderno de Projetos | 1 cômodo | 0,5 |
 | | 2-4 cômodos ou até 100m² | 1 |
-| | 5+ cômodos ou >100m² | 1 |
+| | 5+ cômodos ou >100m² | 1,5 |
 | Renderização | 0-50m² | 0,5 |
 | | 50-150m² | 0,5 |
 | | >150m² | 1 |
@@ -416,3 +417,4 @@ Três etapas, cada uma com faixa mínima (~70m², todas as disciplinas) e máxim
 | 06/10/2026 | Planilha de validação oficial + Gabi | ARQ/GBE | Bloco de Modelagem adicionado (famílias, tipos, modelagem por metragem, modelo federado; viabilidade). Usado quando o cliente quer modelagem (ex: 2D → 3D). Soma com vários tipos de pavimento em aberto → PO revisa |
 | 06/10/2026 | Planilha de validação oficial | DI | Representação geométrica e Renderização passaram a ser por **metragem** (0-50 / 50-150 / >150m²) em vez de nº de cômodos; semanas iguais |
 | 13/10/2026 | Planilha de validação oficial (aba GO renomeada para "PdO") | GO | Máximo passou de ~200m² para **até 500m²**; Orçamento mínimo 3 → **1 semana** (orçamento com IA); insumo: IFCs terceirizados; inviáveis: IFC muito pesado ou do SketchUp sem informação, base que não seja a SINAPI; "Iberque" corrigido para Eberick; divergência 70 vs. 100m² saiu da lista "a confirmar" (vale 70m²) |
+| 29/10/2026 | Planilha de validação oficial + Gabi | ARQ, DI | ARQ: "ou sobrado" saiu da faixa >200m² do Estudo Preliminar; sobrado agora soma **+0,5** na faixa de metragem (só no Estudo Preliminar — Gabi). DI: Caderno de Projetos 5+ cômodos ou >100m² 1 → **1,5**. Aba nova "MOD" (cópia da PdO com linhas ARQ/EST/ELE/HID) **não incorporada**: aguarda confirmação do PO |

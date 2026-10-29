@@ -55,7 +55,7 @@ Margem pequena = até 10% acima (ou abaixo, no ARQ) do limite. 130m² contra lim
 | 2 | Buraco entre faixas | Modelagem ARQ/GBE salta de `150-300m²` para `400-800m²`; nada cobre 350m² | Faixa acima do buraco, direto (sempre "pra cima": é cobertura, não direção de arredondamento) |
 | 3 | Limite exato não coberto | Estudo preliminar usa `<120m²` e `>120m²`; 120 exato não está em nenhum. Mesmo caso em 200 e 300 | Faixa correspondente na direção padrão da disciplina, direto |
 | 4 | Dois critérios da mesma célula discordam | Estudo preliminar: `<120m² ou com planta definida` contra `>120m² ou sem planta definida`. Casa de 150m² com planta definida se encaixa nas duas | Vale o critério que aponta mais alto, depois aplicar o teste passo 2 vs. passo 3 |
-| 5 | Critérios de natureza diferente na mesma linha | Ex: Estudo preliminar mistura metragem com tipo (`>200m² ou sobrado`). *(Análise topográfica não entra mais aqui: desde 30/09/2026 só o desnível conta, a área do terreno não.)* | Vale o que aponta mais alto, mesmo teste |
+| 5 | Critérios de natureza diferente na mesma linha | Ex: Estudo preliminar mistura metragem com tipo (`>300m² com subsolo ou adicionais`). *(Análise topográfica não entra mais aqui: desde 30/09/2026 só o desnível conta, a área do terreno não.)* | Vale o que aponta mais alto, mesmo teste |
 | 6 | Linha sem critério nenhum | Modelagem no Revit, anteprojeto e renderização têm as células de complexidade vazias | Herdar a coluna em que o projeto caiu no Estudo preliminar e registrar que foi por herança |
 | 7 | Sem faixa, só dois pontos | GO tem apenas 70m² e 500m² como âncoras | Interpolar e arredondar para cima em múltiplos de 0,5 |
 
